@@ -2,6 +2,7 @@
 using Panacea.Core;
 using Panacea.Modularity;
 using Panacea.Modularity.UiManager.Extensions;
+using Panacea.Modules.Advertisements.ViewModels;
 using System;
 using System.IO;
 using System.Threading.Tasks;
@@ -65,9 +66,7 @@ namespace Panacea.Modules.Advertisements
 
         public Task EndInit()
         {
-            var adv = new Advertisement(new ViewModels.AdvertisementViewModel(_core));
-            adv.SetValue(DockPanel.DockProperty, Dock.Right);
-            adv.SetValue(DockPanel.ZIndexProperty, 1000);
+            var adv = new AdvertisementViewModel(_core);
             _core.GetUiManager().AddNavigationBarControl(adv);
             return Task.CompletedTask;
         }

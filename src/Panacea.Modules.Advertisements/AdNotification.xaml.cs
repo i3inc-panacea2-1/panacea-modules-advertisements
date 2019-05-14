@@ -23,12 +23,12 @@ namespace Panacea.Modules.Advertisements
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            _core.GetUiManager().Refrain(this);
+            //_core.GetUiManager().Refrain(this);
         }
 
         private void Presenter_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
-            _core.GetUiManager().Refrain(this);
+            //_core.GetUiManager().Refrain(this);
         }
     }
 }
