@@ -52,7 +52,7 @@ namespace Panacea.Modules.Advertisements.ViewModels
             _refreshTimer.Tick += _refreshTimer_Tick;
             _refreshTimer.Interval = TimeSpan.FromMinutes(new Random().Next(50, 70));
             _impressionsTimer.Interval = TimeSpan.FromMinutes(new Random().Next(10, 20)).TotalMilliseconds;
-            _impressionsTimer.Elapsed += _impressionsTimer_Elapsed;
+            _impressionsTimer.Elapsed += _storeImpressions;
             _impressionsTimer.Start();
             InvalidateAdvertisements().ContinueWith((task) =>
             {
@@ -68,12 +68,10 @@ namespace Panacea.Modules.Advertisements.ViewModels
             _currentPlugin = e;
             if (_splash == null || _notifications == null) return;
             var adToShow = _splash.FirstOrDefault(s => s.Plugins?.Any(p => p == e) == true);
-
             if (adToShow != null)
             {
                 //todo
                 //var control = new AdvertisementPresenter(adToShow, new AdvertisementPresenterViewModel(_core));
-
                 //_splash.Remove(adToShow);
                 //_splash.Add(adToShow);
                 //ShowSplash(adToShow);
@@ -104,7 +102,8 @@ namespace Panacea.Modules.Advertisements.ViewModels
         {
             try
             {
-                var response = await _core.HttpClient.GetObjectAsync<AdResponse>("ad/get_adcategories/");//TODO: make url into a method
+                //TODO: make url into a method
+                var response = await _core.HttpClient.GetObjectAsync<AdResponse>("ad/get_adcategories/");
                 if (!response.Success) return;
                 var cats = response.Result.Advertisements.AdCategories;
                 _advertisements = new List<AdvertisementEntry>();
@@ -235,12 +234,10 @@ namespace Panacea.Modules.Advertisements.ViewModels
 
         private void BannerTimer_Elapsed(object sender, EventArgs e)
         {
-
             ShowNextBanner();
         }
 
         int currentBannerIndex = -1;
-
         private void ShowNextBanner()
         {
             if (_banners == null || _banners.Count == 0) return;
@@ -265,13 +262,13 @@ namespace Panacea.Modules.Advertisements.ViewModels
             return ap;
         }
 
-
-        private async void _impressionsTimer_Elapsed(object sender, ElapsedEventArgs e)
+        private async void _storeImpressions(object sender, ElapsedEventArgs e)
         {
             try
             {
                 if (_impressions.Keys.Count == 0) return;
-                var res = await _core.HttpClient.GetObjectAsync<object>("ad/storeImpressions/", new List<KeyValuePair<string, string>>() //TODO: URL SHOULD BE A METHOD
+                //TODO: URL SHOULD BE A METHOD
+                var res = await _core.HttpClient.GetObjectAsync<object>("ad/storeImpressions/", new List<KeyValuePair<string, string>>()
                 {
                     new KeyValuePair<string, string>("impressions", _serializer.Serialize(_impressions))
                 });

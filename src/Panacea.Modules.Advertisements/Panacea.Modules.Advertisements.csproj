@@ -53,8 +53,8 @@
     <Reference Include="Panacea.Modularity.MediaPlayerContainer, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Panacea.Modularity.MediaPlayerContainer.1.1.1\lib\net462\Panacea.Modularity.MediaPlayerContainer.dll</HintPath>
     </Reference>
-    <Reference Include="Panacea.Modularity.UiManager, Version=7.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Panacea.Modularity.UiManager.7.0.0\lib\net462\Panacea.Modularity.UiManager.dll</HintPath>
+    <Reference Include="Panacea.Modularity.UiManager, Version=7.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Panacea.Modularity.UiManager.7.0.1\lib\net462\Panacea.Modularity.UiManager.dll</HintPath>
     </Reference>
     <Reference Include="Panacea.Multilinguality, Version=0.1.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Panacea.Multilinguality.0.1.2\lib\net462\Panacea.Multilinguality.dll</HintPath>
@@ -79,13 +79,14 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdNotification.xaml.cs">
+    <Compile Include="ViewModels\AdNotificationViewModel.cs" />
+    <Compile Include="Views\AdNotification.xaml.cs">
       <DependentUpon>AdNotification.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AdvertisementPresenter.xaml.cs">
+    <Compile Include="Views\AdvertisementPresenter.xaml.cs">
       <DependentUpon>AdvertisementPresenter.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Advertisement.xaml.cs">
+    <Compile Include="Views\Advertisement.xaml.cs">
       <DependentUpon>Advertisement.xaml</DependentUpon>
     </Compile>
     <Compile Include="AdvertisementsPlugin.cs" />
@@ -117,15 +118,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="AdNotification.xaml">
+    <Page Include="Views\AdNotification.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AdvertisementPresenter.xaml">
+    <Page Include="Views\AdvertisementPresenter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Advertisement.xaml">
+    <Page Include="Views\Advertisement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
