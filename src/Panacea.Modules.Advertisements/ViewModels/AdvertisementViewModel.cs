@@ -12,6 +12,7 @@ using System.Timers;
 using System.Windows.Threading;
 namespace Panacea.Modules.Advertisements.ViewModels
 {
+    [View(typeof(Advertisement))]
     public class AdvertisementViewModel : ViewModelBase
     {
         private readonly ISerializer _serializer;
@@ -26,14 +27,14 @@ namespace Panacea.Modules.Advertisements.ViewModels
         CancellationTokenSource _notificationCancellation, _splashCancellation;
         string _currentPlugin;
 
-        AdvertisementPresenter _adPresenter;
-        public AdvertisementPresenter AdPresenter
+        AdvertisementPresenterViewModel _adPresenter;
+        public AdvertisementPresenterViewModel AdPresenter
         {
             get => _adPresenter;
             protected set
             {
                 _adPresenter = value;
-                SetProperty();
+                OnPropertyChanged();
             }
         }
 
@@ -70,11 +71,12 @@ namespace Panacea.Modules.Advertisements.ViewModels
 
             if (adToShow != null)
             {
-                var control = new AdvertisementPresenter(adToShow, new AdvertisementPresenterViewModel(_core));
+                //todo
+                //var control = new AdvertisementPresenter(adToShow, new AdvertisementPresenterViewModel(_core));
 
-                _splash.Remove(adToShow);
-                _splash.Add(adToShow);
-                ShowSplash(adToShow);
+                //_splash.Remove(adToShow);
+                //_splash.Add(adToShow);
+                //ShowSplash(adToShow);
             }
             else
             {
@@ -161,9 +163,10 @@ namespace Panacea.Modules.Advertisements.ViewModels
         {
             if (ad == null) return;
             var control = GetAdvertisementPresenter(ad);
-            var pop = _core.GetUiManager().ShowPopup(control);
-            await Task.Delay(ad.DurationOnScreen * 1000);
-            _core.GetUiManager().HidePopup(pop);
+            //todo
+            //var pop = _core.GetUiManager().ShowPopup(control);
+            //await Task.Delay(ad.DurationOnScreen * 1000);
+            //_core.GetUiManager().HidePopup(pop);
         }
 
         async void PlanNextNotification()
@@ -181,11 +184,11 @@ namespace Panacea.Modules.Advertisements.ViewModels
         {
             if (ad == null) return;
             var control = GetAdvertisementPresenter(ad);
-
-            var notification = new AdNotification(control, _core);
-            _core.GetUiManager().Notify(notification);
-            await Task.Delay(ad.DurationOnScreen * 1000);
-            _core.GetUiManager().Refrain(notification);
+            //todo
+            //var notification = new AdNotification(control, _core);
+            //_core.GetUiManager().Notify(notification);
+            //await Task.Delay(ad.DurationOnScreen * 1000);
+            //_core.GetUiManager().Refrain(notification);
         }
 
         AdvertisementEntry GetNextAdvertisement(IEnumerable<AdvertisementEntry> ads, out int seconds)
@@ -251,9 +254,9 @@ namespace Panacea.Modules.Advertisements.ViewModels
             AdPresenter = GetAdvertisementPresenter(_banners[currentBannerIndex]);
         }
 
-        public AdvertisementPresenter GetAdvertisementPresenter(AdvertisementEntry ad)
+        public AdvertisementPresenterViewModel GetAdvertisementPresenter(AdvertisementEntry ad)
         {
-            var ap = new AdvertisementPresenter(ad, new AdvertisementPresenterViewModel(_core));
+            var ap = new AdvertisementPresenterViewModel(_core) { Ad = ad };
             if (!_impressions.ContainsKey(ad.Id))
             {
                 _impressions[ad.Id] = 1;

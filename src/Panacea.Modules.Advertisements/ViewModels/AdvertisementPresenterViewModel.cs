@@ -12,7 +12,7 @@ using Panacea.Core.Mvvm;
 
 namespace Panacea.Modules.Advertisements.ViewModels
 {
-
+    [View(typeof(AdvertisementPresenter))]
     public class AdvertisementPresenterViewModel : ViewModelBase
     {
 
@@ -23,7 +23,7 @@ namespace Panacea.Modules.Advertisements.ViewModels
             set
             {
                 _ad = value;
-                SetProperty();
+                OnPropertyChanged();
             }
         }
 

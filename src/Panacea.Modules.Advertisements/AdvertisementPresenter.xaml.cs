@@ -1,35 +1,19 @@
 ﻿using Panacea.Core.Mvvm;
 using Panacea.Modules.Advertisements.Models;
 using Panacea.Modules.Advertisements.ViewModels;
+using System.Windows.Controls;
 
 namespace Panacea.Modules.Advertisements
 {
     /// <summary>
     /// Interaction logic for AdvertisementPresenter.xaml
     /// </summary>
-    public partial class AdvertisementPresenter : AdvertisementPresenterUserControl
+    public partial class AdvertisementPresenter : UserControl
     {
-        public AdvertisementPresenter(AdvertisementEntry ad)
+        public AdvertisementPresenter()
         {
-            ViewModel.Ad = ad;
             InitializeComponent();
         }
-        public AdvertisementPresenter(AdvertisementEntry ad, AdvertisementPresenterViewModel viewModel) : base(viewModel)
-        {
-            ViewModel.Ad = ad;
-            InitializeComponent();
-        }
-    }
-
-    public abstract class AdvertisementPresenterUserControl : UserControlWithViewModel<AdvertisementPresenterViewModel>
-    {
-        public AdvertisementPresenterUserControl()
-        {
-
-        }
-        public AdvertisementPresenterUserControl(AdvertisementPresenterViewModel viewModel) : base(viewModel)
-        {
-
-        }
+      
     }
 }
