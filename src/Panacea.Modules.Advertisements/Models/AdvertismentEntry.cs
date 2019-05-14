@@ -14,8 +14,6 @@ namespace Panacea.Modules.Advertisements.Models
         [DataMember(Name = "description")]
         public string Description { get; set; }
 
-
-
         [DataMember(Name = "adType")]
         public AdvertisementType AdType { get; set; }
 

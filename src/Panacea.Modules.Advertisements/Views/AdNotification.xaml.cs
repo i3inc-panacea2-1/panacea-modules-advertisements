@@ -16,9 +16,5 @@ namespace Panacea.Modules.Advertisements
         {
             InitializeComponent();
         }
-        private void Presenter_PreviewMouseUp(object sender, MouseButtonEventArgs e)
-        {
-            //_core.GetUiManager().Refrain(this);
-        }
     }
 }

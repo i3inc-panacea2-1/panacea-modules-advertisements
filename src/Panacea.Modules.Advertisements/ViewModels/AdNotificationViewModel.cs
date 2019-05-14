@@ -1,6 +1,7 @@
 ﻿using Panacea.Controls;
 using Panacea.Core;
 using Panacea.Core.Mvvm;
+using Panacea.Modularity.UiManager.Extensions;
 using Panacea.Modules.Advertisements;
 using Panacea.Modules.Advertisements.ViewModels;
 using System.Windows;
@@ -21,11 +22,10 @@ namespace Panacea.Modules.Advertisements.ViewModels
             Presenter = presenter;
             Close = new RelayCommand(async (arg) =>
             {
-                //TODO: Cannot refrain "THIS" ?!!
-                //_core.GetUiManager().Refrain(this);
+                _core.GetUiManager().Refrain(this);
             });
             Click = new RelayCommand(async (arg) => {
-                //_core.GetUiManager().Refrain(this);
+                _core.GetUiManager().Refrain(this);
             });
         }
     }
