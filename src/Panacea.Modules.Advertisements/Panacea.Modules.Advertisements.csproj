@@ -32,39 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
-    </Reference>
-    <Reference Include="Panacea.Controls, Version=0.0.11.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Panacea.Controls.0.0.11-beta20190513-1237-gdfddf1a\lib\net462\Panacea.Controls.dll</HintPath>
-    </Reference>
-    <Reference Include="Panacea.Core, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Panacea.Core.4.0.0\lib\net462\Panacea.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Panacea.Models, Version=0.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Panacea.Models.0.0.2\lib\net462\Panacea.Models.dll</HintPath>
-    </Reference>
-    <Reference Include="Panacea.Modularity, Version=0.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Panacea.Modularity.0.0.2\lib\net462\Panacea.Modularity.dll</HintPath>
-    </Reference>
-    <Reference Include="Panacea.Modularity.Media, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Panacea.Modularity.Media.1.0.0\lib\net462\Panacea.Modularity.Media.dll</HintPath>
-    </Reference>
-    <Reference Include="Panacea.Modularity.MediaPlayerContainer, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Panacea.Modularity.MediaPlayerContainer.1.1.1\lib\net462\Panacea.Modularity.MediaPlayerContainer.dll</HintPath>
-    </Reference>
-    <Reference Include="Panacea.Modularity.UiManager, Version=7.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Panacea.Modularity.UiManager.7.0.1\lib\net462\Panacea.Modularity.UiManager.dll</HintPath>
-    </Reference>
-    <Reference Include="Panacea.Multilinguality, Version=0.1.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Panacea.Multilinguality.0.1.2\lib\net462\Panacea.Multilinguality.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -111,7 +81,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -130,6 +99,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Panacea.Controls">
+      <Version>0.0.11-beta20190513-1237-gdfddf1a</Version>
+    </PackageReference>
+    <PackageReference Include="Panacea.Modularity.MediaPlayerContainer">
+      <Version>1.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Panacea.Modularity.UiManager">
+      <Version>7.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Panacea.Multilinguality">
+      <Version>0.1.2</Version>
+    </PackageReference>
+    <PackageReference Include="System.Windows.Interactivity.WPF">
+      <Version>2.0.20525</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
