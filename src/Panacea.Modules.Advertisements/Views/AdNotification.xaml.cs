@@ -1,5 +1,5 @@
 ﻿using Panacea.Core;
-using Panacea.Core.Mvvm;
+using Panacea.Mvvm;
 using Panacea.Modularity.UiManager.Extensions;
 using System.Windows;
 using System.Windows.Controls;

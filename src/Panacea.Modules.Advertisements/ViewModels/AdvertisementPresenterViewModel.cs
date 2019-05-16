@@ -8,7 +8,7 @@ using Panacea.Modularity.MediaPlayerContainer.Extensions;
 using Panacea.Modularity.MediaPlayerContainer;
 using Panacea.Modularity.Media;
 using System.Linq;
-using Panacea.Core.Mvvm;
+using Panacea.Mvvm;
 
 namespace Panacea.Modules.Advertisements.ViewModels
 {

@@ -1,6 +1,4 @@
-﻿using Panacea.Core.Mvvm;
-using Panacea.Modules.Advertisements.ViewModels;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
 namespace Panacea.Modules.Advertisements
 {

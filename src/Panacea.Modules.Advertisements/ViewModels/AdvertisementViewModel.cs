@@ -1,6 +1,5 @@
 ﻿using Panacea.Core;
-using Panacea.Core.Mvvm;
-using Panacea.Modularity.UiManager.Extensions;
+using Panacea.Mvvm;
 using Panacea.Modules.Advertisements.Models;
 using System;
 using System.Collections.Generic;
