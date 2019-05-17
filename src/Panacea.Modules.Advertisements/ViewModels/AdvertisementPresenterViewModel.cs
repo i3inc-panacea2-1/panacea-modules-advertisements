@@ -59,7 +59,7 @@ namespace Panacea.Modules.Advertisements.ViewModels
     }
 }
 
-internal class IPTVChannel : Channel
+internal class IPTVChannel : MediaItem
 {
     public string URL { get; set; }
 
