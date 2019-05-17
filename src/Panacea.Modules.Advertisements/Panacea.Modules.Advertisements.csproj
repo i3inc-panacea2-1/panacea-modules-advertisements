@@ -102,7 +102,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Panacea.Controls">
-      <Version>0.0.12-beta20190517-0842-ge772d6b</Version>
+      <Version>0.0.13-beta20190517-1252-g4d12ae0</Version>
     </PackageReference>
     <PackageReference Include="Panacea.Models">
       <Version>0.0.2</Version>
