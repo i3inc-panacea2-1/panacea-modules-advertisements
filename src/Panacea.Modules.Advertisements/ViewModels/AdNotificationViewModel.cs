@@ -1,7 +1,7 @@
 ﻿using Panacea.Controls;
 using Panacea.Core;
 using Panacea.Mvvm;
-using Panacea.Modularity.UiManager.Extensions;
+using Panacea.Modularity.UiManager;
 using System.Windows.Input;
 
 namespace Panacea.Modules.Advertisements.ViewModels
@@ -17,12 +17,19 @@ namespace Panacea.Modules.Advertisements.ViewModels
         {
             _core = core;
             Presenter = presenter;
-            Close = new RelayCommand(async (arg) =>
+            Close = new RelayCommand((arg) =>
             {
-                _core.GetUiManager().Refrain(this);
+                if (_core.TryGetUiManager(out IUiManager ui))
+                {
+                    ui.Refrain(this);
+                }
             });
-            Click = new RelayCommand(async (arg) => {
-                _core.GetUiManager().Refrain(this);
+            Click = new RelayCommand((arg) =>
+            {
+                if (_core.TryGetUiManager(out IUiManager ui))
+                {
+                    ui.Refrain(this);
+                }
             });
         }
     }

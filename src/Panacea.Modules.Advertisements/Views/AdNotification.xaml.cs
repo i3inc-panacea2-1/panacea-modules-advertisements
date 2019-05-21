@@ -1,9 +1,4 @@
-﻿using Panacea.Core;
-using Panacea.Mvvm;
-using Panacea.Modularity.UiManager.Extensions;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
+﻿using System.Windows.Controls;
 
 namespace Panacea.Modules.Advertisements
 {
