@@ -8,14 +8,19 @@
     xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:panacealib1="clr-namespace:Panacea.Controls;assembly=Panacea.Controls"
+    xmlns:converters="clr-namespace:Panacea.Modules.Advertisments.Converters"
     d:DesignHeight="300"
     d:DesignWidth="300"
     mc:Ignorable="d">
+    <UserControl.Resources>
+        <converters:HeightToWidthConverter x:Key="Conv"/>
+    </UserControl.Resources>
     <d:UserControl.DataContext>
         <x:Type Type="advertismentsViewModels:AdvertisementPresenterViewModel" />
     </d:UserControl.DataContext>
     <Grid
-        HorizontalAlignment="Center">
+        HorizontalAlignment="Center"
+        Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight, Converter={StaticResource Conv}}">
         <panacealib1:CacheImage
             Grid.Row="0"
             Grid.RowSpan="2"
