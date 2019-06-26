@@ -1,26 +1,24 @@
 ﻿<UserControl
-    xmlns:advertisments="clr-namespace:Panacea.Modules.Advertisements"
-    xmlns:advertismentsViewModels="clr-namespace:Panacea.Modules.Advertisements.ViewModels"
     x:Class="Panacea.Modules.Advertisements.AdvertisementPresenter"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:advertisments="clr-namespace:Panacea.Modules.Advertisements"
+    xmlns:advertismentsViewModels="clr-namespace:Panacea.Modules.Advertisements.ViewModels"
+    xmlns:converters="clr-namespace:Panacea.Modules.Advertisments.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:panacealib1="clr-namespace:Panacea.Controls;assembly=Panacea.Controls"
-    xmlns:converters="clr-namespace:Panacea.Modules.Advertisments.Converters"
     d:DesignHeight="300"
     d:DesignWidth="300"
     mc:Ignorable="d">
     <UserControl.Resources>
-        <converters:HeightToWidthConverter x:Key="Conv"/>
+        <converters:HeightToWidthConverter x:Key="Conv" />
     </UserControl.Resources>
     <d:UserControl.DataContext>
         <x:Type Type="advertismentsViewModels:AdvertisementPresenterViewModel" />
     </d:UserControl.DataContext>
-    <Grid
-        HorizontalAlignment="Center"
-        Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight, Converter={StaticResource Conv}}">
+    <Grid Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight, Converter={StaticResource Conv}}" HorizontalAlignment="Center">
         <panacealib1:CacheImage
             Grid.Row="0"
             Grid.RowSpan="2"
@@ -29,7 +27,7 @@
             HorizontalAlignment="Left"
             ImageUrl="{Binding Ad.ImgThumbnail.Image}"
             Stretch="Uniform"
-            StretchDirection="DownOnly" >
+            StretchDirection="DownOnly">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="PreviewMouseLeftButtonUp">
                     <i:InvokeCommandAction Command="{Binding PreviewMouseLeftButtonUpCommand}" CommandParameter="{Binding Ad}" />

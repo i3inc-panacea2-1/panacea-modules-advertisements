@@ -8,6 +8,7 @@ using Panacea.Modularity.MediaPlayerContainer;
 using Panacea.Modularity.Media;
 using System.Linq;
 using Panacea.Mvvm;
+using Panacea.Modularity.WebBrowsing;
 
 namespace Panacea.Modules.Advertisements.ViewModels
 {
@@ -47,7 +48,10 @@ namespace Panacea.Modules.Advertisements.ViewModels
                 switch (ad.AdType)
                 {
                     case AdvertisementType.Webpage:
-                        //TODO: comm.OpenUri(new Uri("chromium:?url=" + HttpUtility.UrlEncode(_server.RelativeToAbsoluteFromServer("/api/" + (await _identifier.GetIdentificationInfoAsync()).Putik + "/test/" + (userManager.User?.ID ?? "0") + "/ad/adClick/" + ad.Id + "/"))));
+                        if(_core.TryGetWebBrowser(out IWebBrowserPlugin web))
+                        {
+                            web.OpenUnmanaged(_core.HttpClient.GetApiEndpoint("/ad/adClick/" + ad.Id + "/"));
+                        }
                         break;
                     case AdvertisementType.Video:
                         if(_core.TryGetMediaPlayerContainer(out IMediaPlayerContainer player))
