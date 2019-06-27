@@ -37,7 +37,7 @@ namespace Panacea.Modules.Advertisements
             if(_core.TryGetUiManager(out IUiManager ui))
             {
                 var adv = new AdvertisementViewModel(_core);
-                ui.AddNavigationBarControl(adv);
+                ui.AddMainPageControl(adv);
             }
            
             return Task.CompletedTask;
