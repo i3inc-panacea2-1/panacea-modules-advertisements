@@ -32,6 +32,6 @@
             VerticalAlignment="Center"
             Command="{Binding Close}"
             Content="{multilinguality1:Translate 'Close',
-                                                'core'}" />
+                                                'Advertisements'}" />
     </Grid>
 </UserControl>
