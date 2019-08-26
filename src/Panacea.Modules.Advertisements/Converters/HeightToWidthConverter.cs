@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Windows.Data;
 
-namespace Panacea.Modules.Advertisments.Converters
+namespace Panacea.Modules.Advertisements.Converters
 {
     class HeightToWidthConverter : IValueConverter
     {
